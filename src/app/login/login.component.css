@@ -1,0 +1,56 @@
+/* Variables de colores exactas del diseño UFPS SIA */
+:host {
+  /* Colores principales */
+  --primary-red: #E31E24;
+  --primary-red-hover: #C71A1F;
+  
+  /* Fondos */
+  --bg-light: #EFEFEF;
+  --gray-section: #E0E0E0;
+  --gray-icon: #D4D4D4;
+  
+  /* Bordes y campos */
+  --border-input: #CCCCCC;
+  
+  /* Textos */
+  --text-dark: #333333;
+  --text-label: #5F5F5F;
+  
+  /* Error */
+  --error-red: #E31E24;
+}
+
+/* Estilos globales del componente */
+* {
+  box-sizing: border-box;
+}
+
+/* Inputs */
+input {
+  font-family: inherit;
+  transition: border-color 0.2s ease;
+}
+
+input:focus {
+  box-shadow: 0 0 0 3px rgba(227, 30, 36, 0.1);
+}
+
+input::placeholder {
+  color: #999999;
+}
+
+/* Botón */
+button[type="submit"] {
+  transition: all 0.3s ease;
+}
+
+button[type="submit"]:active {
+  transform: scale(0.98);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .lg\:w-1\/2 {
+    width: 100%;
+  }
+}

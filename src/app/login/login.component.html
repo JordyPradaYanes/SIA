@@ -1,0 +1,164 @@
+<div class="min-h-screen flex">
+  <!-- Sección izquierda - Imagen con contenido -->
+  <div class="hidden lg:flex lg:w-1/2 relative bg-cover bg-center" 
+       style="background-image: url('assets/images/campus-background.jpg');">
+    <div class="absolute inset-0 bg-black/30"></div>
+    
+    <div class="relative z-10 flex flex-col justify-between p-12 text-white w-full">
+      <!-- Logo -->
+      <div>
+        <img src="assets/images/logo-ufps.png" alt="UFPS Logo" class="h-20 mb-12">
+      </div>
+
+      <!-- Título -->
+      <div class="mb-8">
+        <h1 class="text-5xl font-bold">Noticias y Eventos</h1>
+      </div>
+
+      <!-- Cards de noticias -->
+      <div class="grid grid-cols-2 gap-6 mb-12">
+        <!-- Card 1 - Aplicación móvil -->
+        <div class="bg-gray-900/50 backdrop-blur-sm rounded overflow-hidden">
+          <div class="p-4">
+            <img src="assets/images/app-mobile.png" alt="App Móvil" class="w-full h-40 object-contain mb-4">
+            <h3 class="text-xl font-semibold mb-3">Aplicación móvil</h3>
+            <div class="flex justify-between items-center text-sm">
+              <span class="uppercase font-medium">DIVISIÓN DE SISTEMAS</span>
+              <span>23 de Noviembre</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 - Bienvenidos -->
+        <div class="bg-gray-900/50 backdrop-blur-sm rounded overflow-hidden">
+          <div class="p-4">
+            <div class="bg-gray-700 h-40 flex items-center justify-center mb-4 rounded">
+              <div class="flex gap-3">
+                <span class="text-5xl">★</span>
+                <span class="text-5xl">★</span>
+                <span class="text-5xl">★</span>
+                <span class="text-5xl">★</span>
+              </div>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">BIENVENIDOS AL NUEVO SIA</h3>
+            <div class="flex justify-between items-center text-sm">
+              <span>División de sistemas</span>
+              <span>01 de SEPTIEMBRE</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="flex items-center gap-4">
+        <div class="bg-white/20 p-3 rounded">
+          <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+          </svg>
+        </div>
+        <div>
+          <p class="font-bold text-base">SISTEMA DE INFORMACIÓN ACADÉMICO (BETA)</p>
+          <p class="text-sm">Universidad Francisco de Paula Santander - Ocaña, Colombia</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sección derecha - Formulario de login -->
+  <div class="w-full lg:w-1/2 flex items-center justify-center bg-[var(--bg-light)]">
+    <div class="w-full max-w-[500px] px-8">
+      <!-- Header SIA -->
+      <div class="mb-8">
+        <div class="bg-[var(--primary-red)] text-white text-right px-8 py-4">
+          <h2 class="text-4xl font-bold mb-1">SIA</h2>
+          <p class="text-sm uppercase tracking-widest">SISTEMA DE INFORMACIÓN</p>
+          <p class="text-sm uppercase tracking-widest">ACADÉMICO</p>
+        </div>
+      </div>
+
+      <!-- Título de inicio de sesión -->
+      <div class="bg-[var(--gray-medium)] px-6 py-3 mb-8">
+        <h3 class="text-lg font-semibold text-[var(--text-dark)] uppercase">Inicio de Sesión</h3>
+      </div>
+
+      <!-- Formulario -->
+      <form (ngSubmit)="onSubmit()" class="space-y-5">
+        <!-- Campo Código -->
+        <div>
+          <div class="flex items-center gap-3 mb-2">
+            <div class="bg-[var(--gray-medium)] p-2 rounded">
+              <svg class="w-5 h-5 text-[var(--text-dark)]" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+              </svg>
+            </div>
+            <label class="text-[var(--text-gray)] font-medium">Código</label>
+          </div>
+          <input
+            type="text"
+            [(ngModel)]="codigo"
+            name="codigo"
+            class="w-full px-4 py-3 border border-[var(--border-gray)] rounded focus:outline-none focus:border-[var(--primary-red)] bg-white"
+          >
+        </div>
+
+        <!-- Campo Documento -->
+        <div>
+          <div class="flex items-center gap-3 mb-2">
+            <div class="bg-[var(--gray-medium)] p-2 rounded">
+              <svg class="w-5 h-5 text-[var(--text-dark)]" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            <label class="text-[var(--text-gray)] font-medium">Documento</label>
+          </div>
+          <input
+            type="text"
+            [(ngModel)]="documento"
+            name="documento"
+            value="1091355246"
+            class="w-full px-4 py-3 border border-[var(--border-gray)] rounded focus:outline-none focus:border-[var(--primary-red)] bg-white"
+          >
+        </div>
+
+        <!-- Campo Contraseña -->
+        <div>
+          <div class="flex items-center gap-3 mb-2">
+            <div class="bg-[var(--gray-medium)] p-2 rounded">
+              <svg class="w-5 h-5 text-[var(--text-dark)]" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            <label class="text-[var(--text-gray)] font-medium">Contraseña</label>
+          </div>
+          <div class="relative">
+            <input
+              [type]="passwordVisible ? 'text' : 'password'"
+              [(ngModel)]="contrasena"
+              name="contrasena"
+              value="••••••••••••"
+              class="w-full px-4 py-3 border border-[var(--border-gray)] rounded focus:outline-none focus:border-[var(--primary-red)] bg-white"
+            >
+          </div>
+        </div>
+
+        <!-- Mensaje de error -->
+        <div *ngIf="errorMessage" class="flex items-center gap-2 text-[var(--error-red)] text-sm px-1">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+          </svg>
+          <span>Olvidó su contraseña</span>
+        </div>
+
+        <!-- Botón Ingresar -->
+        <div class="pt-4">
+          <button
+            type="submit"
+            class="w-full bg-[var(--primary-red)] hover:bg-[var(--primary-red-dark)] text-white font-bold py-4 px-6 rounded uppercase tracking-wide transition-colors text-lg"
+          >
+            Ingresar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
