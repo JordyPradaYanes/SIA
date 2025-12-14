@@ -4,6 +4,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -25,22 +26,24 @@ export class LoginComponent {
     password: ''
   };
 
-  // Credenciales válidas
-  private validCredentials = {
-    codigo: '192099',
-    documento: '1091355245',
-    password: 'JORDY123#'
-  };
+  constructor(private router: Router) {}
+
+  // Lista de usuarios válidos
+  private users = [
+    { codigo: '192099', documento: '1091355245', password: 'JORDY123#' },
+    { codigo: '192260', documento: '5073908', password: '12345678' },
+    { codigo: '191919', documento: '1092355246', password: '12345678' }
+  ];
 
   togglePassword(): void {
     this.showPassword = !this.showPassword;
   }
 
   validateCredentials(): boolean {
-    return (
-      this.formData.codigo === this.validCredentials.codigo &&
-      this.formData.documento === this.validCredentials.documento &&
-      this.formData.password === this.validCredentials.password
+    return this.users.some(user => 
+      user.codigo === this.formData.codigo &&
+      user.documento === this.formData.documento &&
+      user.password === this.formData.password
     );
   }
 
@@ -74,7 +77,7 @@ export class LoginComponent {
         // Aquí puedes redirigir al dashboard
         setTimeout(() => {
           console.log('Redirigiendo al dashboard...');
-          // this.router.navigate(['/dashboard']);
+          this.router.navigate(['/dashboard']);
         }, 1500);
       } else {
         this.showNotificationMessage(
