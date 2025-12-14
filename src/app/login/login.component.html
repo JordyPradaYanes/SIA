@@ -1,164 +1,305 @@
 <div class="min-h-screen flex">
-  <!-- Sección izquierda - Imagen con contenido -->
-  <div class="hidden lg:flex lg:w-1/2 relative bg-cover bg-center" 
-       style="background-image: url('assets/images/campus-background.jpg');">
-    <div class="absolute inset-0 bg-black/30"></div>
-    
-    <div class="relative z-10 flex flex-col justify-between p-12 text-white w-full">
-      <!-- Logo -->
-      <div>
-        <img src="assets/images/logo-ufps.png" alt="UFPS Logo" class="h-20 mb-12">
-      </div>
-
-      <!-- Título -->
-      <div class="mb-8">
-        <h1 class="text-5xl font-bold">Noticias y Eventos</h1>
-      </div>
-
-      <!-- Cards de noticias -->
-      <div class="grid grid-cols-2 gap-6 mb-12">
-        <!-- Card 1 - Aplicación móvil -->
-        <div class="bg-gray-900/50 backdrop-blur-sm rounded overflow-hidden">
-          <div class="p-4">
-            <img src="assets/images/app-mobile.png" alt="App Móvil" class="w-full h-40 object-contain mb-4">
-            <h3 class="text-xl font-semibold mb-3">Aplicación móvil</h3>
-            <div class="flex justify-between items-center text-sm">
-              <span class="uppercase font-medium">DIVISIÓN DE SISTEMAS</span>
-              <span>23 de Noviembre</span>
-            </div>
+  <!-- Main Content Section -->
+  <div class="flex-1 relative overflow-hidden">
+    <!-- Header -->
+    <header class="absolute top-0 left-0 right-0 z-10 p-6">
+      <a href="http://www.ufpso.edu.co" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3">
+        <div class="bg-white rounded-lg p-2 shadow-md">
+          <div class="w-12 h-12 bg-red-600 rounded flex items-center justify-center text-white font-bold text-xs">
+            UFPS
           </div>
         </div>
+      </a>
+    </header>
 
-        <!-- Card 2 - Bienvenidos -->
-        <div class="bg-gray-900/50 backdrop-blur-sm rounded overflow-hidden">
-          <div class="p-4">
-            <div class="bg-gray-700 h-40 flex items-center justify-center mb-4 rounded">
-              <div class="flex gap-3">
-                <span class="text-5xl">★</span>
-                <span class="text-5xl">★</span>
-                <span class="text-5xl">★</span>
-                <span class="text-5xl">★</span>
+    <!-- Hero Section with News -->
+    <div class="hero-section h-full w-full bg-cover bg-center relative">
+      <div class="absolute inset-0 bg-gradient-to-br from-black/50 via-black/30 to-black/50"></div>
+      
+      <div class="relative z-10 h-full flex items-center px-8 md:px-16">
+        <div class="max-w-5xl">
+          <h1 class="text-white text-5xl md:text-7xl font-bold mb-12 drop-shadow-lg">
+            Noticias y Eventos
+          </h1>
+          
+          <!-- News Cards -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Card 1 - Mobile App -->
+            <a 
+              href="https://play.google.com/store/apps/details?id=co.edu.ufpso&hl=es" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="group"
+            >
+              <div class="news-card bg-gray-900/80 backdrop-blur-sm rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border border-white/10">
+                <div class="h-48 bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
+                  <div class="text-white text-6xl">📱</div>
+                </div>
+                <div class="p-5">
+                  <h3 class="text-white font-bold text-lg mb-2">Aplicación móvil</h3>
+                  <p class="text-gray-300 text-sm mb-4 line-clamp-3">
+                    La División de Sistemas presenta la primera aplicación móvil multiplataforma para una cómoda visualización en dispositivos móviles.
+                  </p>
+                  <div class="flex justify-between items-center text-xs">
+                    <span class="text-gray-400 uppercase font-semibold">División de Sistemas</span>
+                    <span class="text-gray-500">23 de Noviembre</span>
+                  </div>
+                </div>
               </div>
-            </div>
-            <h3 class="text-xl font-semibold mb-3">BIENVENIDOS AL NUEVO SIA</h3>
-            <div class="flex justify-between items-center text-sm">
-              <span>División de sistemas</span>
-              <span>01 de SEPTIEMBRE</span>
-            </div>
+            </a>
+
+            <!-- Card 2 - Welcome -->
+            <a href="https://ufpso.edu.co" target="_blank" rel="noopener noreferrer" class="group">
+              <div class="news-card bg-gray-900/80 backdrop-blur-sm rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border border-white/10">
+                <div class="h-48 bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center">
+                  <div class="text-white text-6xl">⭐</div>
+                </div>
+                <div class="p-5">
+                  <h3 class="text-white font-bold text-lg mb-2">BIENVENIDOS AL NUEVO SIA</h3>
+                  <p class="text-gray-300 text-sm mb-4 line-clamp-3">
+                    Nueva plataforma del Sistema de Información Académica con mejor servicio para administrativos y estudiantes.
+                  </p>
+                  <div class="flex justify-between items-center text-xs">
+                    <span class="text-gray-400 uppercase font-semibold">División de Sistemas</span>
+                    <span class="text-gray-500">01 de Septiembre</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <!-- Card 3 - Welcome Copy -->
+            <a href="https://ufpso.edu.co" target="_blank" rel="noopener noreferrer" class="group">
+              <div class="news-card bg-gray-900/80 backdrop-blur-sm rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border border-white/10">
+                <div class="h-48 bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center">
+                  <div class="text-white text-6xl">🎓</div>
+                </div>
+                <div class="p-5">
+                  <h3 class="text-white font-bold text-lg mb-2">BIENVENIDOS AL NUEVO SIA</h3>
+                  <p class="text-gray-300 text-sm mb-4 line-clamp-3">
+                    Bienvenidos al nuevo sistema de información académico
+                  </p>
+                  <div class="flex justify-between items-center text-xs">
+                    <span class="text-gray-400 uppercase font-semibold">División de Sistemas</span>
+                    <span class="text-gray-500">01 de Septiembre</span>
+                  </div>
+                </div>
+              </div>
+            </a>
           </div>
         </div>
       </div>
 
-      <!-- Footer -->
-      <div class="flex items-center gap-4">
-        <div class="bg-white/20 p-3 rounded">
-          <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
-          </svg>
+      <!-- Footer in Main Section -->
+      <div class="absolute bottom-0 left-0 right-0 bg-black/80 backdrop-blur-sm text-white py-4 px-8">
+        <div class="flex items-center justify-center gap-3 mb-2">
+          <div class="bg-red-600 rounded px-3 py-1 text-sm font-bold">SIA</div>
+          <span class="text-sm font-semibold">SISTEMA DE INFORMACIÓN ACADÉMICO (BETA)</span>
         </div>
-        <div>
-          <p class="font-bold text-base">SISTEMA DE INFORMACIÓN ACADÉMICO (BETA)</p>
-          <p class="text-sm">Universidad Francisco de Paula Santander - Ocaña, Colombia</p>
+        <div class="text-center text-xs text-gray-400">
+          Universidad Francisco de Paula Santander - Ocaña, Colombia
+        </div>
+        <div class="text-center text-xs text-gray-500 mt-2">
+          Desarrollado por: DIVISIÓN DE SISTEMAS
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Sección derecha - Formulario de login -->
-  <div class="w-full lg:w-1/2 flex items-center justify-center bg-[var(--bg-light)]">
-    <div class="w-full max-w-[500px] px-8">
-      <!-- Header SIA -->
-      <div class="mb-8">
-        <div class="bg-[var(--primary-red)] text-white text-right px-8 py-4">
-          <h2 class="text-4xl font-bold mb-1">SIA</h2>
-          <p class="text-sm uppercase tracking-widest">SISTEMA DE INFORMACIÓN</p>
-          <p class="text-sm uppercase tracking-widest">ACADÉMICO</p>
-        </div>
+  <!-- Sidebar Login Panel -->
+  <div class="w-full md:w-96 lg:w-[450px] bg-white shadow-2xl flex flex-col">
+    <!-- SIA Header -->
+    <div class="bg-gradient-to-r from-red-600 to-red-700 py-6 px-8 text-center">
+      <div class="text-white text-4xl font-bold tracking-wider mb-2">SIA</div>
+      <div class="text-white/90 text-xs uppercase tracking-widest">
+        <div>Sistema de Información</div>
+        <div>Académico</div>
       </div>
+    </div>
 
-      <!-- Título de inicio de sesión -->
-      <div class="bg-[var(--gray-medium)] px-6 py-3 mb-8">
-        <h3 class="text-lg font-semibold text-[var(--text-dark)] uppercase">Inicio de Sesión</h3>
-      </div>
+    <!-- Login Form -->
+    <div class="flex-1 overflow-y-auto px-8 py-10">
+      <h2 class="text-gray-800 text-xl font-bold mb-8 text-center uppercase tracking-wide">
+        Inicio de Sesión
+      </h2>
 
-      <!-- Formulario -->
-      <form (ngSubmit)="onSubmit()" class="space-y-5">
-        <!-- Campo Código -->
-        <div>
-          <div class="flex items-center gap-3 mb-2">
-            <div class="bg-[var(--gray-medium)] p-2 rounded">
-              <svg class="w-5 h-5 text-[var(--text-dark)]" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+      <div class="space-y-6">
+        <!-- Código Input -->
+        <div class="relative">
+          <div class="flex items-center border-b-2 border-gray-300 focus-within:border-red-600 transition-colors">
+            <div class="flex items-center justify-center w-12 h-12 text-gray-400">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 5v14"/>
+                <path d="M8 5v14"/>
+                <path d="M12 5v14"/>
+                <path d="M17 5v14"/>
+                <path d="M21 5v14"/>
               </svg>
             </div>
-            <label class="text-[var(--text-gray)] font-medium">Código</label>
+            <div class="flex-1 relative">
+              <input
+                type="number"
+                id="codigo"
+                [(ngModel)]="formData.codigo"
+                (keypress)="handleKeyPress($event)"
+                maxlength="6"
+                class="w-full py-3 px-3 bg-transparent outline-none text-gray-800"
+              />
+              <label
+                for="codigo"
+                [class.label-active]="formData.codigo"
+                class="input-label"
+              >
+                Código
+              </label>
+            </div>
           </div>
-          <input
-            type="text"
-            [(ngModel)]="codigo"
-            name="codigo"
-            class="w-full px-4 py-3 border border-[var(--border-gray)] rounded focus:outline-none focus:border-[var(--primary-red)] bg-white"
-          >
         </div>
 
-        <!-- Campo Documento -->
-        <div>
-          <div class="flex items-center gap-3 mb-2">
-            <div class="bg-[var(--gray-medium)] p-2 rounded">
-              <svg class="w-5 h-5 text-[var(--text-dark)]" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+        <!-- Documento Input -->
+        <div class="relative">
+          <div class="flex items-center border-b-2 border-gray-300 focus-within:border-red-600 transition-colors">
+            <div class="flex items-center justify-center w-12 h-12 text-gray-400">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="14" x="2" y="5" rx="2"/>
+                <line x1="2" x2="22" y1="10" y2="10"/>
               </svg>
             </div>
-            <label class="text-[var(--text-gray)] font-medium">Documento</label>
+            <div class="flex-1 relative">
+              <input
+                type="text"
+                id="documento"
+                [(ngModel)]="formData.documento"
+                (keypress)="handleKeyPress($event)"
+                maxlength="20"
+                class="w-full py-3 px-3 bg-transparent outline-none text-gray-800"
+              />
+              <label
+                for="documento"
+                [class.label-active]="formData.documento"
+                class="input-label"
+              >
+                Documento
+              </label>
+            </div>
           </div>
-          <input
-            type="text"
-            [(ngModel)]="documento"
-            name="documento"
-            value="1091355246"
-            class="w-full px-4 py-3 border border-[var(--border-gray)] rounded focus:outline-none focus:border-[var(--primary-red)] bg-white"
-          >
         </div>
 
-        <!-- Campo Contraseña -->
-        <div>
-          <div class="flex items-center gap-3 mb-2">
-            <div class="bg-[var(--gray-medium)] p-2 rounded">
-              <svg class="w-5 h-5 text-[var(--text-dark)]" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
+        <!-- Contraseña Input -->
+        <div class="relative">
+          <div class="flex items-center border-b-2 border-gray-300 focus-within:border-red-600 transition-colors">
+            <div class="flex items-center justify-center w-12 h-12 text-gray-400">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4"/>
+                <path d="m21 2-9.6 9.6"/>
+                <circle cx="7.5" cy="15.5" r="5.5"/>
               </svg>
             </div>
-            <label class="text-[var(--text-gray)] font-medium">Contraseña</label>
-          </div>
-          <div class="relative">
-            <input
-              [type]="passwordVisible ? 'text' : 'password'"
-              [(ngModel)]="contrasena"
-              name="contrasena"
-              value="••••••••••••"
-              class="w-full px-4 py-3 border border-[var(--border-gray)] rounded focus:outline-none focus:border-[var(--primary-red)] bg-white"
+            <div class="flex-1 relative">
+              <input
+                [type]="showPassword ? 'text' : 'password'"
+                id="contraseña"
+                [(ngModel)]="formData.password"
+                (keypress)="handleKeyPress($event)"
+                class="w-full py-3 px-3 bg-transparent outline-none text-gray-800"
+              />
+              <label
+                for="contraseña"
+                [class.label-active]="formData.password"
+                class="input-label"
+              >
+                Contraseña
+              </label>
+            </div>
+            <button
+              (click)="togglePassword()"
+              type="button"
+              class="flex items-center justify-center w-12 h-12 text-gray-400 hover:text-gray-600 transition-colors"
             >
+              <svg *ngIf="!showPassword" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+              <svg *ngIf="showPassword" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/>
+                <path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/>
+                <path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/>
+                <line x1="2" x2="22" y1="2" y2="22"/>
+              </svg>
+            </button>
           </div>
         </div>
 
-        <!-- Mensaje de error -->
-        <div *ngIf="errorMessage" class="flex items-center gap-2 text-[var(--error-red)] text-sm px-1">
-          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
-          </svg>
-          <span>Olvidó su contraseña</span>
-        </div>
-
-        <!-- Botón Ingresar -->
-        <div class="pt-4">
-          <button
-            type="submit"
-            class="w-full bg-[var(--primary-red)] hover:bg-[var(--primary-red-dark)] text-white font-bold py-4 px-6 rounded uppercase tracking-wide transition-colors text-lg"
+        <!-- Forgot Password Link -->
+        <div class="pt-2">
+          <button 
+            (click)="resetPassword()"
+            type="button"
+            class="flex items-center gap-2 text-sm text-gray-600 hover:text-red-600 transition-colors"
           >
-            Ingresar
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+              <path d="M12 17h.01"/>
+            </svg>
+            <span>Olvidó su contraseña</span>
           </button>
         </div>
-      </form>
+
+        <!-- Submit Button -->
+        <button
+          (click)="handleLogin()"
+          [disabled]="isLoading"
+          type="button"
+          class="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 
+                 text-white font-bold py-4 rounded-lg shadow-lg hover:shadow-xl 
+                 transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]
+                 uppercase tracking-wide text-sm disabled:opacity-50 disabled:cursor-not-allowed
+                 flex items-center justify-center gap-2"
+        >
+          <span *ngIf="!isLoading">Ingresar</span>
+          <span *ngIf="isLoading" class="flex items-center gap-2">
+            <svg class="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            Ingresando...
+          </span>
+        </button>
+      </div>
     </div>
+
+    <!-- Bottom Info -->
+    <div class="bg-gray-50 border-t border-gray-200 px-8 py-4 text-center">
+      <div class="flex items-center justify-center gap-2 mb-2">
+        <div class="w-8 h-8 bg-red-600 rounded flex items-center justify-center text-white text-xs font-bold">
+          UFPS
+        </div>
+      </div>
+      <div class="text-xs text-gray-600">
+        Universidad Francisco de Paula Santander
+      </div>
+      <div class="text-xs text-gray-500 mt-1">
+        Ocaña, Colombia
+      </div>
+    </div>
+  </div>
+
+  <!-- Notification -->
+  <div 
+    *ngIf="showNotification"
+    [class.notification-success]="notificationType === 'success'"
+    [class.notification-error]="notificationType === 'error'"
+    class="notification fixed top-4 right-4 z-50 px-6 py-4 rounded-lg shadow-2xl flex items-center gap-3 animate-slide-in"
+  >
+    <svg *ngIf="notificationType === 'success'" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+      <polyline points="22 4 12 14.01 9 11.01"/>
+    </svg>
+    <svg *ngIf="notificationType === 'error'" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <line x1="15" x2="9" y1="9" y2="15"/>
+      <line x1="9" x2="15" y1="9" y2="15"/>
+    </svg>
+    <span class="font-semibold">{{ notificationMessage }}</span>
   </div>
 </div>

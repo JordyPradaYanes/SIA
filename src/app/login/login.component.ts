@@ -1,3 +1,6 @@
+// ============================================
+// login.component.ts
+// ============================================
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -10,52 +13,90 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  // Propiedades del formulario
-  codigo: string = '';
-  documento: string = '1091355246';
-  contrasena: string = '';
-  passwordVisible: boolean = false;
-  errorMessage: string = '';
+  showPassword = false;
+  isLoading = false;
+  showNotification = false;
+  notificationMessage = '';
+  notificationType: 'success' | 'error' = 'success';
 
-  /**
-   * Alterna la visibilidad de la contraseña
-   */
-  togglePasswordVisibility(): void {
-    this.passwordVisible = !this.passwordVisible;
+  formData = {
+    codigo: '',
+    documento: '',
+    password: ''
+  };
+
+  // Credenciales válidas
+  private validCredentials = {
+    codigo: '192099',
+    documento: '1091355245',
+    password: 'JORDY123#'
+  };
+
+  togglePassword(): void {
+    this.showPassword = !this.showPassword;
   }
 
-  /**
-   * Maneja el envío del formulario
-   */
-  onSubmit(): void {
-    // Reiniciar mensaje de error
-    this.errorMessage = '';
+  validateCredentials(): boolean {
+    return (
+      this.formData.codigo === this.validCredentials.codigo &&
+      this.formData.documento === this.validCredentials.documento &&
+      this.formData.password === this.validCredentials.password
+    );
+  }
 
-    // Validación básica
-    if (!this.codigo || !this.documento || !this.contrasena) {
-      this.errorMessage = 'Por favor, complete todos los campos para continuar.';
+  showNotificationMessage(message: string, type: 'success' | 'error'): void {
+    this.notificationMessage = message;
+    this.notificationType = type;
+    this.showNotification = true;
+
+    setTimeout(() => {
+      this.showNotification = false;
+    }, 4000);
+  }
+
+  handleLogin(): void {
+    // Validar campos vacíos
+    if (!this.formData.codigo || !this.formData.documento || !this.formData.password) {
+      this.showNotificationMessage('Por favor complete todos los campos', 'error');
       return;
     }
 
-    // Lógica de autenticación
-    const loginData = {
-      codigo: this.codigo,
-      documento: this.documento,
-      contrasena: this.contrasena
-    };
+    this.isLoading = true;
 
-    console.log('Intento de login:', loginData);
-    
-    // Aquí implementarías la llamada al servicio de autenticación
-    // Ejemplo:
-    // this.authService.login(loginData).subscribe(...)
+    // Simular llamada a API
+    setTimeout(() => {
+      if (this.validateCredentials()) {
+        this.showNotificationMessage(
+          `¡Bienvenido! Código: ${this.formData.codigo}`,
+          'success'
+        );
+        
+        // Aquí puedes redirigir al dashboard
+        setTimeout(() => {
+          console.log('Redirigiendo al dashboard...');
+          // this.router.navigate(['/dashboard']);
+        }, 1500);
+      } else {
+        this.showNotificationMessage(
+          'Credenciales incorrectas. Por favor verifique sus datos.',
+          'error'
+        );
+      }
+      this.isLoading = false;
+    }, 1000);
   }
 
-  /**
-   * Maneja el clic en "Olvidó su contraseña"
-   */
-  forgotPassword(): void {
-    console.log('Recuperar contraseña');
-    // Implementar navegación o modal para recuperación de contraseña
+  handleKeyPress(event: KeyboardEvent): void {
+    if (event.key === 'Enter') {
+      this.handleLogin();
+    }
+  }
+
+  resetPassword(): void {
+    console.log('Recuperar contraseña...');
+    this.showNotificationMessage(
+      'Funcionalidad de recuperación de contraseña próximamente',
+      'error'
+    );
   }
 }
