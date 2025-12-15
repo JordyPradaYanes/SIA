@@ -1,0 +1,30 @@
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px; /* Specific height for the red bar */
+  padding: 0 40px; /* Horizontal padding only */
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Align Top so taller logo hangs down */
+  /* background-color: #e2001a; handled by HTML class bg-red-500 */
+}
+
+#logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Logo alineado a la izquierda */
+  gap: 15px;
+  /* background: white; handled by HTML class */
+  /* height: 96px; handled by HTML class h-24 */
+  padding: 0 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.logo_ufpso img {
+  height: 70px; /* <--- AQUI PUEDES CAMBIAR EL TAMAÑO DEL ALTO DEL LOGO */
+  width: auto;
+}

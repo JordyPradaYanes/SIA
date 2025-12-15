@@ -1,253 +1,471 @@
 /* Login Component Styles - UFPSO SIA */
 
-.flex_aside {
+/* Layout Structure */
+#wrapper {
+  display: flex;
+  height: 100vh; /* Main viewport height */
   width: 100%;
-  max-width: 400px;
-  background: linear-gradient(135deg, #e2001a 0%, #b30015 100%);
-  min-height: 100vh;
+  overflow-y: auto; /* Scrollbar on window/wrapper edge */
+  overflow-x: hidden;
+  align-items: flex-start; /* Prevent stretch, allow sticky */
+}
+
+.flex_cont {
+  flex: 1;
+  position: relative;
   display: flex;
   flex-direction: column;
+  /* Original URL broken: https://ww2.ufpso.edu.co/assets/img/slider/slider_1.jpg */
+  /* Using working fallback from news cards: */
+  background-image: url("https://new.ufpso.edu.co/media/contenido/cabezera/casona.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh; /* Ensure full background coverage */
+  /* height: 100%; REMOVED */
+  overflow-y: auto;
+
+  content: "cover";
+}
+.flex_cont::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4); /* Overlay to make text readable */
+  z-index: 0;
+  /* Ensure overlay covers scrollable content height or is fixed? 
+     If we scroll, we want the bg to stay or scroll? 
+     Standard cover bg usually stays fixed or covers area.
+     With overflow-y:auto on flex_cont, bg attached to flex_cont will scroll if not fixed.
+     But background-attachment: fixed is often better for this.
+     Let's try standard behavior first.
+  */
+  /* min-height: 100%; Implicit via absolute positioning */
+}
+
+/* Ensure content sits above overlay */
+header,
+section,
+footer {
   position: relative;
+  z-index: 1;
+}
+
+section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 40px;
+}
+
+/* News Section */
+.container-inicio {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.letreros {
+  margin-bottom: 40px;
+}
+
+.titulo {
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  display: block;
+}
+
+.rowNoticias {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.containerNoti {
+  height: 300px;
+  perspective: 1000px;
+}
+
+.containerNoti a {
+  text-decoration: none;
+  display: block;
+  height: 100%;
+}
+
+.noticia {
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Align content to top */
+  align-items: normal; /* Allow text to fill width */
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  background-color: #2c3e50; /* Fallback color */
+  text-align: left; /* Left align text */
+}
+
+.noticia::before {
+  content: "";
+  position: absolute;
+  justify-content: flex-start;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.2) 60%,
+    transparent 100%
+  );
+  transition: background 0.3s ease;
+}
+
+.containerNoti:hover .noticia {
+  transform: translateY(-10px);
+}
+
+/* Darker overlay on hover to read text better */
+.containerNoti:hover .noticia::before {
+  background: rgba(0, 0, 0, 0.85); /* Slightly darker */
+}
+
+.notiTitulo {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: bold;
+  font-family: "Myriad Pro Bold", sans-serif;
+  line-height: 1.1;
+  margin-bottom: 0; /* Remove margin to sit tight at bottom */
+  position: relative;
+  z-index: 2;
+  transition: transform 0.4s ease;
+  transform: translateY(0); /* Start at natural position (bottom) */
+}
+
+.notiTexto {
+  color: #e0e0e0;
+  font-size: 1rem;
+  text-align: justify;
+  margin-top: 10px; /* Add space between title and text */
+  display: -webkit-box;
+  -webkit-line-clamp: 10; /* Allow plenty of text */
+  line-clamp: 10;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+
+  /* Hide initially */
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+}
+
+/* Show on hover */
+.containerNoti:hover .notiTitulo {
+  transform: translateY(
+    0
+  ); /* Stays in flow, but pushed up by text expanding? No. */
+  /* If we expand text below, Title goes UP?
+     If justify-content is flex-end:
+     [Title]
+     [Text (0 height)]
+     
+     Hover: Text grows.
+     [Title] (pushed up)
+     [Text (200px)]
+     
+     This is exactly the "slide up" effect.
+  */
+}
+
+.containerNoti:hover .notiTexto {
+  max-height: 300px; /* Expand to fit content */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.notiAutor,
+.notiFecha {
+  color: #bdc3c7;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  display: block;
+  position: absolute; /* Absolute positioning at bottom */
+  bottom: 15px;
+  z-index: 3;
+  font-weight: bold;
+}
+
+.notiAutor {
+  left: 20px;
+  color: white; /* Make brighter as in image */
+}
+
+.notiFecha {
+  right: 20px;
+  color: white; /* Make brighter as in image */
+  margin-top: 0; /* remove margin */
+}
+
+/* Footer */
+footer {
+  padding: 20px 40px;
+  color: white;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.nom-sof {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.nom-sof img {
+  height: 30px;
+}
+
+.sia {
+  font-weight: bold;
+  background: #e2001a;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.ufpso {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+#divisis {
+  display: flex;
+  gap: 5px;
+  font-size: 0.7rem;
+  opacity: 0.6;
+}
+
+/* Sidebar Styling - Redesign based on image */
+.flex_aside {
+  width: 100%;
+  max-width: 340px;
+  background: white; /* Changed from gradient to white */
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1); /* Subtle shadow separator */
 }
 
 #lateral {
   width: 100%;
-  padding: 20px;
+  padding: 0; /* Remove padding to handle full-width headers */
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex: 1;
 }
 
-/* Hamburguesa Móvil */
-.hamburMobil {
-  display: none;
-  width: 100%;
-  padding: 15px;
-  background: rgba(0, 0, 0, 0.2);
-  margin-bottom: 20px;
-  cursor: pointer;
-}
-
-.hamburMobil i {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-style: normal;
-}
-
+/* Hide Mobile Hamburger/SIA logic for now or style generically */
+.hamburMobil,
+.hamburMobil i,
 #nav-icon1 {
-  width: 30px;
-  height: 25px;
-  position: relative;
-  transform: rotate(0deg);
-  transition: 0.5s ease-in-out;
-  cursor: pointer;
+  display: none !important; /* Force hide for desktop view focus */
 }
 
-#nav-icon1 span {
-  display: block;
-  position: absolute;
-  height: 3px;
-  width: 100%;
-  background: white;
-  border-radius: 9px;
-  opacity: 1;
-  left: 0;
-  transform: rotate(0deg);
-  transition: 0.25s ease-in-out;
-}
-
-#nav-icon1 span:nth-child(1) {
-  top: 0px;
-}
-
-#nav-icon1 span:nth-child(2) {
-  top: 10px;
-}
-
-#nav-icon1 span:nth-child(3) {
-  top: 20px;
-}
-
-.hamburMobil label {
-  color: white;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-/* SIA Logo */
-#SIA {
-  width: 100%;
-  text-align: center;
-  padding: 30px 0;
-}
-
-#SIA span {
-  font-size: 48px;
-  font-weight: bold;
-  color: white;
-  letter-spacing: 8px;
-}
-
-/* Hamburguesa Desktop */
+/* Hide old SIA logo/hamburger if not needed, image doesn't show it */
+#SIA,
 #hambur {
   display: none;
-  width: 60px;
-  height: 60px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-  cursor: pointer;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 3px;
 }
 
-#hambur span {
-  width: 25px;
-  height: 3px;
-  background: white;
-  border-radius: 2px;
-}
-
-#hambur hr {
-  width: 25px;
-  border: none;
-  border-top: 3px solid white;
-  margin: 3px 0;
-}
-
-#hambur div {
-  color: white;
-  font-size: 10px;
-  margin-top: 5px;
-}
-
-/* Texto SIA */
+/* Header Text: SISTEMA DE INFORMACIÓN */
 .texto_sia {
   width: 100%;
   text-align: center;
-  margin: 30px 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 5px;
-}
-
-.texto_sia span {
-  color: white;
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: 2px;
+  gap: 0; /* No gap */
 }
 
 .texto_sia span:first-child {
-  font-size: 14px;
+  margin-top: 20px;
+  background-color: #e2001a;
+  color: white;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 17px;
+  font-weight: bold;
+  font-family: "Myriad Pro Bold", "Segoe UI", Tahoma, Geneva, Verdana,
+    sans-serif;
+  letter-spacing: 1px;
+  text-shadow: 0px 0.01em 0.05em #505050;
+  box-shadow: 0em 0.08em 0.06em 0em rgba(78, 78, 78, 0.75);
+  -moz-box-shadow: 0em 0.08em 0.06em 0em rgba(78, 78, 78, 0.75);
+  -webkit-box-shadow: 0em 0.08em 0.06em 0em rgba(78, 78, 78, 0.75);
+  text-transform: uppercase;
 }
 
-/* Container Inicio */
+.texto_sia span:last-child {
+  color: #ec1c21;
+  font-size: 38px;
+  font-weight: bold;
+  font-family: "Myriad Pro Bold", "Segoe UI", Tahoma, Geneva, Verdana,
+    sans-serif;
+  padding: 15px 0;
+  text-shadow: 0px 0.01em 0.05em #505050;
+  letter-spacing: 0.5px;
+}
+
+/* Container Inicio: INICIO DE SESIÓN */
 .container-ini {
   width: 100%;
   background: white;
-  border-radius: 10px;
-  padding: 30px 25px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border-radius: 0; /* Remove radius */
+  padding: 0; /* Reset padding */
+  box-shadow: none; /* Remove shadow */
+  flex: 1; /* Take remaining height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .ini_ses {
   display: block;
+  width: 100%;
   text-align: center;
   font-size: 18px;
   font-weight: bold;
-  color: #333;
-  margin-bottom: 30px;
-  letter-spacing: 1px;
+  color: #555; /* Dark gray text */
+  padding: 15px 0;
+  background-color: #e0e0e0; /* Gray bar background */
+  margin-bottom: 40px; /* Space before form */
+  letter-spacing: 0.5px;
 }
 
 /* Formulario */
 #logeo {
-  width: 100%;
+  width: 85%; /* Inner width */
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 25px;
 }
 
 .input_label {
   position: relative;
   width: 100%;
+  height: 45px;
+  margin-bottom: 10px;
 }
 
+/* Input styling */
 .input_label input {
   width: 100%;
-  padding: 15px 15px 15px 50px;
+  height: 100%;
+  padding: 0 10px 0 50px; /* Space for icon */
   border: none;
-  border-bottom: 2px solid #e0e0e0;
+  background: #f0f4f8; /* Very light blue/gray background for input */
   font-size: 16px;
   outline: none;
-  transition: all 0.3s ease;
-  background: transparent;
   color: #333;
+  transition: all 0.3s ease;
+  border-radius: 0; /* Square edges as in image */
 }
+
+/* Placeholder specific styling to match "Código" in image */
+.input_label input.codigo::placeholder {
+  color: #ccc;
+}
+/* If value is present, background looks blue-ish in image for Document? 
+   Let's keep consistent light blue-gray #f0f4f8 or #e8f0fe */
 
 .input_label input:focus {
-  border-bottom-color: #e2001a;
+  background: #e1eaf5;
 }
 
-.input_label input:focus + .box_blanco label {
-  top: -10px;
-  font-size: 12px;
-  color: #e2001a;
-}
-
-.input_label input:not(:placeholder-shown) + .box_blanco label {
-  top: -10px;
-  font-size: 12px;
-  color: #e2001a;
-}
-
+/* Box Icon (Gray box on left) */
 .box_blanco {
   position: absolute;
   left: 0;
   top: 0;
-  display: flex;
-  align-items: center;
-  pointer-events: none;
-  width: 100%;
+  width: 45px; /* Square box */
   height: 100%;
-}
-
-.box {
-  width: 40px;
-  height: 100%;
+  background-color: #d0d0d0; /* Darker gray for icon box */
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
-  color: #666;
+  pointer-events: none;
+  z-index: 2;
 }
 
+.box {
+  width: auto;
+  height: auto;
+  font-size: 20px;
+  color: #666; /* Icon color */
+}
+
+/* Labels - Floating or fixed? 
+   Image shows labels OUTSIDE atop the input for filled fields (Documento, Contraseña)
+   But "Código" label is missing (placeholder?).
+   Let's style the label to be above the input.
+*/
 .box_blanco label {
   position: absolute;
-  left: 50px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #999;
-  font-size: 16px;
-  transition: all 0.3s ease;
+  left: 0;
+  top: -25px; /* Move label OUTSIDE and ABOVE */
+  width: 200px;
+  text-align: left;
+  color: #777;
+  font-size: 12px;
+  font-weight: normal;
   pointer-events: none;
+  /* Override previous transition/position logic */
+  transform: none !important;
+}
+
+/* Specific quirk: "Código" label in HTML might want to be hidden if it's acting as placeholder?
+   Or keep consistent labels above. Image shows "Código" inside.
+   HTML has label for="cod".
+*/
+.input_label:first-child .box_blanco label {
+  /* Attempt to mimic image where "Código" is placeholder */
+  display: none;
+}
+/* Add placeholder to input if missing in HTML logic? HTML has no placeholder attr. Code logic might need it.
+   But CSS can't add placeholder text.
+   Let's rely on the user seeing "Código" label above if we can't put it inside.
+   Wait, if I hide label, user sees nothing.
+   Let's keep label above for consistency or try to style it inside if empty?
+   :placeholder-shown css trick requires placeholder attribute.
+   Let's keep label ABOVE for all for consistency.
+*/
+.input_label:first-child .box_blanco label {
+  display: block; /* revert hiding */
 }
 
 /* Eye Icon */
 .eye {
   position: absolute;
-  right: 15px;
+  right: 10px;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
   font-size: 20px;
-  color: #666;
+  color: #999;
   z-index: 10;
 }
 
@@ -255,147 +473,78 @@
   color: #e2001a;
 }
 
-/* Icons from icomoon font */
-.icon-barcode:before {
-  content: "\e900";
-}
-
-.icon-credit-card:before {
-  content: "\e901";
-}
-
-.icon-key:before {
-  content: "\e902";
-}
-
-.icon-eye:before {
-  content: "\e903";
-}
-
-.icon-eye-off:before {
-  content: "\e904";
-}
-
-.icon-help-circle-outline:before {
-  content: "\e905";
-}
-
 /* Reset Password Link */
 .resetPass {
   display: flex;
+  justify-content: center; /* Center align */
   align-items: center;
   gap: 8px;
-  color: #666;
+  color: #e2001a; /* Red color */
   font-size: 14px;
   cursor: pointer;
   text-decoration: none;
-  margin-top: 10px;
-  transition: color 0.3s ease;
+  margin-top: 15px;
+  width: 85%; /* Match form width */
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.resetPass:hover {
-  color: #e2001a;
-}
-
-.resetPass span {
+.resetPass .icon-help-circle-outline {
   font-size: 18px;
+  /* Icon is red circle with question mark. 
+     icomoon icon is standard. color is inherited.
+  */
 }
 
 /* Botón Ingresar */
 .ingresar {
-  width: 100%;
-  padding: 15px;
+  width: 40%; /* Smaller width as in image */
+  padding: 10px 0;
   background: #e2001a;
   color: white;
   border: none;
-  border-radius: 8px;
-  font-size: 18px;
+  border-radius: 4px; /* Slight radius */
+  font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  margin-top: 20px;
-  transition: all 0.3s ease;
-  box-shadow: 0 5px 15px rgba(226, 0, 26, 0.3);
-  letter-spacing: 1px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
 }
 
 .ingresar:hover {
-  background: #b30015;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(226, 0, 26, 0.4);
+  background: #c30016;
+  transform: translateY(-1px);
 }
 
 .ingresar:active {
-  transform: translateY(0);
-  box-shadow: 0 3px 10px rgba(226, 0, 26, 0.3);
+  transform: translateY(1px);
 }
 
-/* Responsive */
+/* Icon overrides removed - using FontAwesome */
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
+  #wrapper {
+    flex-direction: column;
+  }
+
   .flex_aside {
     max-width: 100%;
+    height: auto;
+    position: relative;
+    box-shadow: none;
+  }
+
+  #lateral {
+    padding-bottom: 40px;
   }
 
   .hamburMobil {
-    display: block;
+    display: block; /* Show mobile menu trigger */
+    background: #e2001a; /* Match header */
   }
 
-  #SIA span {
-    font-size: 36px;
-    letter-spacing: 6px;
-  }
-
-  .texto_sia {
-    margin: 20px 0;
-  }
-
-  .container-ini {
-    padding: 25px 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  #lateral {
-    padding: 15px;
-  }
-
-  #SIA span {
-    font-size: 28px;
-    letter-spacing: 4px;
-  }
-
-  .texto_sia span {
-    font-size: 14px;
-  }
-
-  .texto_sia span:first-child {
-    font-size: 12px;
-  }
-
-  .container-ini {
-    padding: 20px 15px;
-  }
-
-  .ini_ses {
-    font-size: 16px;
-  }
-
-  .input_label input {
-    padding: 12px 12px 12px 45px;
-    font-size: 14px;
-  }
-
-  .box {
-    width: 35px;
-    font-size: 18px;
-  }
-
-  .box_blanco label {
-    left: 45px;
-    font-size: 14px;
-  }
-
-  .ingresar {
-    padding: 12px;
-    font-size: 16px;
-  }
+  /* Reuse header style for mobile if needed */
 }

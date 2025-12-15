@@ -1,305 +1,222 @@
-<div class="min-h-screen flex">
-  <!-- Main Content Section -->
-  <div class="flex-1 relative overflow-hidden">
-    <!-- Header -->
-    <header class="absolute top-0 left-0 right-0 z-10 p-6">
-      <a href="http://www.ufpso.edu.co" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3">
-        <div class="bg-white rounded-lg p-2 shadow-md">
-          <div class="w-12 h-12 bg-red-600 rounded flex items-center justify-center text-white font-bold text-xs">
-            UFPS
-          </div>
-        </div>
-      </a>
-    </header>
+<div id="wrapper">
+  <div class="flex_cont">
+    <app-navbar></app-navbar>
 
-    <!-- Hero Section with News -->
-    <div class="hero-section h-full w-full bg-cover bg-center relative">
-      <div class="absolute inset-0 bg-gradient-to-br from-black/50 via-black/30 to-black/50"></div>
-      
-      <div class="relative z-10 h-full flex items-center px-8 md:px-16">
-        <div class="max-w-5xl">
-          <h1 class="text-white text-5xl md:text-7xl font-bold mb-12 drop-shadow-lg">
-            Noticias y Eventos
-          </h1>
-          
-          <!-- News Cards -->
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <!-- Card 1 - Mobile App -->
-            <a 
-              href="https://play.google.com/store/apps/details?id=co.edu.ufpso&hl=es" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="group"
+    <section class="">
+      <!--NOTICIAS-->
+      <div class="container-inicio">
+        <div class="letreros">
+          <span class="titulo">Noticias y Eventos</span>
+        </div>
+        <div class="rowNoticias">
+          <div class="containerNoti">
+            <a
+              style="width: 100%; height: 100%"
+              target="_blank"
+              href="https://play.google.com/store/apps/details?id=co.edu.ufpso&amp;hl=es"
             >
-              <div class="news-card bg-gray-900/80 backdrop-blur-sm rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border border-white/10">
-                <div class="h-48 bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
-                  <div class="text-white text-6xl">📱</div>
-                </div>
-                <div class="p-5">
-                  <h3 class="text-white font-bold text-lg mb-2">Aplicación móvil</h3>
-                  <p class="text-gray-300 text-sm mb-4 line-clamp-3">
-                    La División de Sistemas presenta la primera aplicación móvil multiplataforma para una cómoda visualización en dispositivos móviles.
-                  </p>
-                  <div class="flex justify-between items-center text-xs">
-                    <span class="text-gray-400 uppercase font-semibold">División de Sistemas</span>
-                    <span class="text-gray-500">23 de Noviembre</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-
-            <!-- Card 2 - Welcome -->
-            <a href="https://ufpso.edu.co" target="_blank" rel="noopener noreferrer" class="group">
-              <div class="news-card bg-gray-900/80 backdrop-blur-sm rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border border-white/10">
-                <div class="h-48 bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center">
-                  <div class="text-white text-6xl">⭐</div>
-                </div>
-                <div class="p-5">
-                  <h3 class="text-white font-bold text-lg mb-2">BIENVENIDOS AL NUEVO SIA</h3>
-                  <p class="text-gray-300 text-sm mb-4 line-clamp-3">
-                    Nueva plataforma del Sistema de Información Académica con mejor servicio para administrativos y estudiantes.
-                  </p>
-                  <div class="flex justify-between items-center text-xs">
-                    <span class="text-gray-400 uppercase font-semibold">División de Sistemas</span>
-                    <span class="text-gray-500">01 de Septiembre</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-
-            <!-- Card 3 - Welcome Copy -->
-            <a href="https://ufpso.edu.co" target="_blank" rel="noopener noreferrer" class="group">
-              <div class="news-card bg-gray-900/80 backdrop-blur-sm rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border border-white/10">
-                <div class="h-48 bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center">
-                  <div class="text-white text-6xl">🎓</div>
-                </div>
-                <div class="p-5">
-                  <h3 class="text-white font-bold text-lg mb-2">BIENVENIDOS AL NUEVO SIA</h3>
-                  <p class="text-gray-300 text-sm mb-4 line-clamp-3">
-                    Bienvenidos al nuevo sistema de información académico
-                  </p>
-                  <div class="flex justify-between items-center text-xs">
-                    <span class="text-gray-400 uppercase font-semibold">División de Sistemas</span>
-                    <span class="text-gray-500">01 de Septiembre</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Footer in Main Section -->
-      <div class="absolute bottom-0 left-0 right-0 bg-black/80 backdrop-blur-sm text-white py-4 px-8">
-        <div class="flex items-center justify-center gap-3 mb-2">
-          <div class="bg-red-600 rounded px-3 py-1 text-sm font-bold">SIA</div>
-          <span class="text-sm font-semibold">SISTEMA DE INFORMACIÓN ACADÉMICO (BETA)</span>
-        </div>
-        <div class="text-center text-xs text-gray-400">
-          Universidad Francisco de Paula Santander - Ocaña, Colombia
-        </div>
-        <div class="text-center text-xs text-gray-500 mt-2">
-          Desarrollado por: DIVISIÓN DE SISTEMAS
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Sidebar Login Panel -->
-  <div class="w-full md:w-96 lg:w-[450px] bg-white shadow-2xl flex flex-col">
-    <!-- SIA Header -->
-    <div class="bg-gradient-to-r from-red-600 to-red-700 py-6 px-8 text-center">
-      <div class="text-white text-4xl font-bold tracking-wider mb-2">SIA</div>
-      <div class="text-white/90 text-xs uppercase tracking-widest">
-        <div>Sistema de Información</div>
-        <div>Académico</div>
-      </div>
-    </div>
-
-    <!-- Login Form -->
-    <div class="flex-1 overflow-y-auto px-8 py-10">
-      <h2 class="text-gray-800 text-xl font-bold mb-8 text-center uppercase tracking-wide">
-        Inicio de Sesión
-      </h2>
-
-      <div class="space-y-6">
-        <!-- Código Input -->
-        <div class="relative">
-          <div class="flex items-center border-b-2 border-gray-300 focus-within:border-red-600 transition-colors">
-            <div class="flex items-center justify-center w-12 h-12 text-gray-400">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 5v14"/>
-                <path d="M8 5v14"/>
-                <path d="M12 5v14"/>
-                <path d="M17 5v14"/>
-                <path d="M21 5v14"/>
-              </svg>
-            </div>
-            <div class="flex-1 relative">
-              <input
-                type="number"
-                id="codigo"
-                [(ngModel)]="formData.codigo"
-                (keypress)="handleKeyPress($event)"
-                maxlength="6"
-                class="w-full py-3 px-3 bg-transparent outline-none text-gray-800"
-              />
-              <label
-                for="codigo"
-                [class.label-active]="formData.codigo"
-                class="input-label"
+              <div
+                class="noticia"
+                style="
+                  background-image: url(https://siaweb.ufpso.edu.co/comprimir.php?imgURL=app/autenticacion/views/imagenes/noticias/high_resolution/especifica/SIAPP.png);
+                "
               >
-                Código
-              </label>
-            </div>
-          </div>
-        </div>
-
-        <!-- Documento Input -->
-        <div class="relative">
-          <div class="flex items-center border-b-2 border-gray-300 focus-within:border-red-600 transition-colors">
-            <div class="flex items-center justify-center w-12 h-12 text-gray-400">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect width="20" height="14" x="2" y="5" rx="2"/>
-                <line x1="2" x2="22" y1="10" y2="10"/>
-              </svg>
-            </div>
-            <div class="flex-1 relative">
-              <input
-                type="text"
-                id="documento"
-                [(ngModel)]="formData.documento"
-                (keypress)="handleKeyPress($event)"
-                maxlength="20"
-                class="w-full py-3 px-3 bg-transparent outline-none text-gray-800"
-              />
-              <label
-                for="documento"
-                [class.label-active]="formData.documento"
-                class="input-label"
-              >
-                Documento
-              </label>
-            </div>
-          </div>
-        </div>
-
-        <!-- Contraseña Input -->
-        <div class="relative">
-          <div class="flex items-center border-b-2 border-gray-300 focus-within:border-red-600 transition-colors">
-            <div class="flex items-center justify-center w-12 h-12 text-gray-400">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4"/>
-                <path d="m21 2-9.6 9.6"/>
-                <circle cx="7.5" cy="15.5" r="5.5"/>
-              </svg>
-            </div>
-            <div class="flex-1 relative">
-              <input
-                [type]="showPassword ? 'text' : 'password'"
-                id="contraseña"
-                [(ngModel)]="formData.password"
-                (keypress)="handleKeyPress($event)"
-                class="w-full py-3 px-3 bg-transparent outline-none text-gray-800"
-              />
-              <label
-                for="contraseña"
-                [class.label-active]="formData.password"
-                class="input-label"
-              >
-                Contraseña
-              </label>
-            </div>
-            <button
-              (click)="togglePassword()"
-              type="button"
-              class="flex items-center justify-center w-12 h-12 text-gray-400 hover:text-gray-600 transition-colors"
+                <span class="notiTitulo">Aplicación móvil</span>
+                <p class="notiTexto">
+                  La División de Sistemas en aras de mejorar la interacción de
+                  los estudiantes con el Sistema de Información Académico,
+                  presenta la primera aplicación móvil multiplataforma; la cual
+                  tiene como objetivo brindar una cómoda visualización en los
+                  dispositivos móviles.
+                </p>
+                <span class="notiAutor">DIVISIÓN DE SISTEMAS</span>
+                <span class="notiFecha">23 de Noviembre</span>
+              </div></a
             >
-              <svg *ngIf="!showPassword" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
-                <circle cx="12" cy="12" r="3"/>
-              </svg>
-              <svg *ngIf="showPassword" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/>
-                <path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/>
-                <path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/>
-                <line x1="2" x2="22" y1="2" y2="22"/>
-              </svg>
-            </button>
+          </div>
+          <div class="containerNoti">
+            <a
+              style="width: 100%; height: 100%"
+              target="_blank"
+              href="https://ufpso.edu.co"
+            >
+              <div
+                class="noticia"
+                style="
+                  background-image: url(https://siaweb.ufpso.edu.co/comprimir.php?imgURL=app/autenticacion/views/imagenes/noticias/star.jpg);
+                "
+              >
+                <span class="notiTitulo">BIENVENIDOS AL NUEVO SIA</span>
+                <p class="notiTexto">
+                  La Universidad Francisco de Paula Santander Ocaña ha
+                  desarrollado una nueva plataforma para el Sistema de
+                  Información Académica (SIA) con el deseo de prestar un mejor
+                  servicio para administrativos y estudiantes. Sean bienvenidos,
+                  esperamos que el nuevo diseño sea de su agrado.
+                </p>
+                <span class="notiAutor">División de sistemas</span>
+                <span class="notiFecha">01 de SEPTIEMBRE</span>
+              </div></a
+            >
+          </div>
+          <div class="containerNoti">
+            <a
+              style="width: 100%; height: 100%"
+              target="_blank"
+              href="https://ufpso.edu.co"
+            >
+              <div
+                class="noticia"
+                style="
+                  background-image: url(https://siaweb.ufpso.edu.co/comprimir.php?imgURL=app/autenticacion/views/imagenes/noticias/star.jpg);
+                "
+              >
+                <span class="notiTitulo">BIENVENIDOS AL NUEVO SIA</span>
+                <p class="notiTexto">
+                  Bienvenidos al nuevo sistema de información academico
+                </p>
+                <span class="notiAutor">División de sistemas</span>
+                <span class="notiFecha">01 de SEPTIEMBRE</span>
+              </div></a
+            >
           </div>
         </div>
-
-        <!-- Forgot Password Link -->
-        <div class="pt-2">
-          <button 
-            (click)="resetPassword()"
-            type="button"
-            class="flex items-center gap-2 text-sm text-gray-600 hover:text-red-600 transition-colors"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
-              <path d="M12 17h.01"/>
-            </svg>
-            <span>Olvidó su contraseña</span>
-          </button>
-        </div>
-
-        <!-- Submit Button -->
-        <button
-          (click)="handleLogin()"
-          [disabled]="isLoading"
-          type="button"
-          class="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 
-                 text-white font-bold py-4 rounded-lg shadow-lg hover:shadow-xl 
-                 transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]
-                 uppercase tracking-wide text-sm disabled:opacity-50 disabled:cursor-not-allowed
-                 flex items-center justify-center gap-2"
+      </div>
+    </section>
+    <footer>
+      <!--FOOTER-->
+      <div class="nom-sof">
+        <img
+          src="assets/imagenes/ufpso/logo_sia.png"
+          onerror="this.style.display='none'"
+        />
+        <span class="sia">SISTEMA DE INFORMACIÓN ACADÉMICO (BETA) </span>
+        <span class="ufpso"
+          >Universidad Francisco de Paula Santander - Ocaña, Colombia</span
         >
-          <span *ngIf="!isLoading">Ingresar</span>
-          <span *ngIf="isLoading" class="flex items-center gap-2">
-            <svg class="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-            </svg>
-            Ingresando...
-          </span>
-        </button>
       </div>
-    </div>
+      <hr />
+      <!--AUTOR-->
+      <div id="divisis">
+        <div class="icon-display"></div>
+        <div class="by">Desarrollado por:</div>
+        <div class="division">DIVISIÓN DE SISTEMAS -</div>
+        <div class="date"></div>
+      </div>
+    </footer>
+  </div>
+  <div class="flex_aside">
+    <aside id="lateral" class="activo">
+      <!--LOGIN-->
 
-    <!-- Bottom Info -->
-    <div class="bg-gray-50 border-t border-gray-200 px-8 py-4 text-center">
-      <div class="flex items-center justify-center gap-2 mb-2">
-        <div class="w-8 h-8 bg-red-600 rounded flex items-center justify-center text-white text-xs font-bold">
-          UFPS
-        </div>
+      <!--SIA-->
+      <div class="hamburMobil">
+        <i class="">
+          <div id="nav-icon1">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <label>SIA</label></i
+        >
       </div>
-      <div class="text-xs text-gray-600">
-        Universidad Francisco de Paula Santander
+      <div id="SIA">
+        <span>SIA</span>
       </div>
-      <div class="text-xs text-gray-500 mt-1">
-        Ocaña, Colombia
+      <!--HAMBURGUESA-->
+      <div id="hambur">
+        <span></span>
+        <span></span>
+        <hr />
+        <div>Menú</div>
       </div>
-    </div>
+
+      <div class="texto_sia">
+        <span>SISTEMA DE INFORMACIÓN</span>
+        <span>ACADÉMICO</span>
+      </div>
+
+      <!--INICIO SESION-->
+      <div class="container-ini">
+        <span class="ini_ses">INICIO DE SESIÓN</span>
+
+        <!--FORMULARIO-->
+        <form id="logeo" autocomplete="off">
+          <div class="input_label">
+            <input
+              type="number"
+              class="codigo"
+              name="cod"
+              id="cod"
+              autocomplete="off"
+              maxlength="6"
+              [(ngModel)]="formData.codigo"
+              (keypress)="handleKeyPress($event)"
+            />
+            <div class="box_blanco">
+              <div class="box fa-solid fa-barcode"></div>
+              <label for="cod" class="">Código</label>
+            </div>
+          </div>
+          <div class="input_label">
+            <input
+              type="text"
+              class="documento"
+              name="doc"
+              id="doc"
+              autocomplete="off"
+              maxlength="20"
+              style="border-bottom: none"
+              [(ngModel)]="formData.documento"
+              (keypress)="handleKeyPress($event)"
+            />
+            <div class="box_blanco">
+              <div class="box fa-solid fa-id-card"></div>
+              <label for="doc" class="activo">Documento</label>
+            </div>
+          </div>
+          <div class="input_label">
+            <input
+              [type]="showPassword ? 'text' : 'password'"
+              class="contraseña"
+              id="pass"
+              name="pas"
+              autocomplete="off"
+              style="border-bottom: none"
+              [(ngModel)]="formData.password"
+              (keypress)="handleKeyPress($event)"
+            />
+            <div class="eye" (click)="togglePassword()">
+              <span
+                [class]="
+                  showPassword ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'
+                "
+              ></span>
+            </div>
+            <div class="box_blanco">
+              <div class="box fa-solid fa-key"></div>
+              <label for="pass" class="activo">Contraseña</label>
+            </div>
+          </div>
+          <a class="resetPass" (click)="resetPassword()"
+            ><span class="fa-solid fa-circle-question"></span>Olvidó su
+            contraseña</a
+          >
+        </form>
+      </div>
+      <!--INGRESAR-->
+      <button
+        class="ingresar"
+        id="ingresar"
+        (click)="handleLogin()"
+        [disabled]="isLoading"
+      >
+        {{ isLoading ? "Ingresando..." : "Ingresar" }}
+      </button>
+    </aside>
   </div>
 
-  <!-- Notification -->
-  <div 
-    *ngIf="showNotification"
-    [class.notification-success]="notificationType === 'success'"
-    [class.notification-error]="notificationType === 'error'"
-    class="notification fixed top-4 right-4 z-50 px-6 py-4 rounded-lg shadow-2xl flex items-center gap-3 animate-slide-in"
-  >
-    <svg *ngIf="notificationType === 'success'" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-      <polyline points="22 4 12 14.01 9 11.01"/>
-    </svg>
-    <svg *ngIf="notificationType === 'error'" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="12" r="10"/>
-      <line x1="15" x2="9" y1="9" y2="15"/>
-      <line x1="9" x2="15" y1="9" y2="15"/>
-    </svg>
-    <span class="font-semibold">{{ notificationMessage }}</span>
+  <div id="notificacion" *ngIf="showNotification" [class]="notificationType">
+    {{ notificationMessage }}
   </div>
 </div>
