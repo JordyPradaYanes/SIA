@@ -94,12 +94,18 @@ export class SidebarComponent {
     }
   }
 
+  showResetModal = false;
+
   resetPassword(): void {
-    console.log('Recuperar contraseña...');
-    this.showNotificationMessage(
-      'Funcionalidad de recuperación de contraseña próximamente',
-      'error'
-    );
+    this.openResetModal();
+  }
+
+  openResetModal(): void {
+    this.showResetModal = true;
+  }
+
+  closeResetModal(): void {
+    this.showResetModal = false;
   }
 
   closeNotification(): void {

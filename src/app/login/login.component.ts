@@ -29,7 +29,7 @@ export class LoginComponent {
 
   // Lista de usuarios válidos
   private users = [
-    { codigo: '192099', documento: '1091355245', password: 'JORDY123#' },
+    { codigo: '192099', documento: '1091355245', password: 'Jordy123#' },
     { codigo: '192260', documento: '5073908', password: '12345678' },
     { codigo: '191919', documento: '1092355246', password: '12345678' }
   ];
@@ -40,8 +40,8 @@ export class LoginComponent {
 
   validateCredentials(): boolean {
     return this.users.some(user => 
-      user.codigo === this.formData.codigo &&
-      user.documento === this.formData.documento &&
+      user.codigo === String(this.formData.codigo) &&
+      user.documento === String(this.formData.documento) &&
       user.password === this.formData.password
     );
   }
@@ -95,13 +95,33 @@ export class LoginComponent {
   }
 
   resetPassword(): void {
-    console.log('Recuperar contraseña...');
-    this.showNotificationMessage(
-      'Funcionalidad de recuperación de contraseña próximamente',
-      'error'
-    );
+    this.openResetModal();
   }
 
+  /* Modal Logic */
+  showResetModal = false;
+
+  openResetModal(): void {
+    this.showResetModal = true;
+  }
+
+  closeResetModal(): void {
+    this.showResetModal = false;
+  }
+
+
+  /* Sidebar Logic */
+  isSidebarOpen = false;
+
+  toggleSidebar(): void {
+    this.isSidebarOpen = !this.isSidebarOpen;
+  }
+
+  closeSidebar(): void {
+    this.isSidebarOpen = false;
+  }
+
+  /* Notification Logic */
   closeNotification(): void {
     this.showNotification = false;
   }
