@@ -15,34 +15,13 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  /* Original URL broken: https://ww2.ufpso.edu.co/assets/img/slider/slider_1.jpg */
-  /* Using working fallback from news cards: */
   background-image: url("https://new.ufpso.edu.co/media/contenido/cabezera/casona.jpg");
   background-size: cover;
   background-position: center;
-  min-height: 100vh; /* Ensure full background coverage */
-  /* height: 100%; REMOVED */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
   overflow-y: auto;
-
-  content: "cover";
-}
-.flex_cont::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.4); /* Overlay to make text readable */
-  z-index: 0;
-  /* Ensure overlay covers scrollable content height or is fixed? 
-     If we scroll, we want the bg to stay or scroll? 
-     Standard cover bg usually stays fixed or covers area.
-     With overflow-y:auto on flex_cont, bg attached to flex_cont will scroll if not fixed.
-     But background-attachment: fixed is often better for this.
-     Let's try standard behavior first.
-  */
-  /* min-height: 100%; Implicit via absolute positioning */
 }
 
 /* Ensure content sits above overlay */
@@ -218,41 +197,117 @@ section {
 }
 
 /* Footer */
+/* Footer */
 footer {
-  padding: 20px 40px;
-  color: white;
-  background: rgba(0, 0, 0, 0.8);
+  /* Reset default footer if needed, but we use .footer-custom */
+  position: relative;
+  z-index: 10;
 }
 
-.nom-sof {
+.footer-custom {
+  background-color: #dcdcdc; /* Light gray matching image */
+  padding: 12px 60px; /* Wider padding */
+  display: flex;
+  justify-content: center; /* Center content groups */
+  align-items: center;
+  width: 100%;
+  gap: 40px; /* Space between groups and divider */
+}
+
+.footer-section {
   display: flex;
   align-items: center;
   gap: 15px;
-  margin-bottom: 10px;
 }
 
-.nom-sof img {
-  height: 30px;
+.sia-img {
+  height: 48px; /* Slightly larger logo */
+  width: auto;
+  border-radius: 4px; /* Soften edges if square */
 }
 
-.sia {
-  font-weight: bold;
-  background: #e2001a;
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-size: 0.8rem;
-}
-
-.ufpso {
-  font-size: 0.8rem;
-  opacity: 0.8;
-}
-
-#divisis {
+.sia-fallback-logo {
+  width: 48px;
+  height: 48px;
+  background-color: #858585;
+  color: white;
   display: flex;
-  gap: 5px;
-  font-size: 0.7rem;
-  opacity: 0.6;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 6px;
+}
+
+.footer-text-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.2;
+}
+
+.sia-title {
+  font-family: "Myriad Pro Bold", sans-serif;
+  font-weight: 800; /* Extra bold */
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #868686; /* Dark gray text */
+  letter-spacing: 0.5px;
+}
+
+.sia-subtitle {
+  font-family: sans-serif;
+  font-size: 13px;
+  color: #777;
+  font-weight: 400;
+  margin-top: 2px;
+}
+
+.footer-divider {
+  height: 50px; /* Height of the divider line */
+  width: 1px;
+  background-color: #999;
+  flex-shrink: 0;
+}
+
+/* Right Section Specifics */
+.footer-icon {
+  font-size: 40px; /* Large monitor icon */
+  color: #777;
+}
+
+.dev-label {
+  font-family: sans-serif;
+  font-size: 12px;
+  color: #777;
+  margin-bottom: 2px;
+}
+
+.dev-name {
+  font-family: "Myriad Pro Bold", sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #868686;
+  letter-spacing: 1px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .footer-custom {
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    text-align: center;
+  }
+  .footer-divider {
+    width: 80%;
+    height: 1px; /* Horizontal divider on mobile */
+  }
+  .footer-section {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
 
 /* Sidebar Styling - Redesign based on image */
@@ -306,7 +361,7 @@ footer {
   background-color: #e2001a;
   color: white;
   width: 100%;
-  padding: 10px 0;
+  padding: 0px 0;
   font-size: 17px;
   font-weight: bold;
   font-family: "Myriad Pro Bold", "Segoe UI", Tahoma, Geneva, Verdana,
@@ -325,7 +380,7 @@ footer {
   font-weight: bold;
   font-family: "Myriad Pro Bold", "Segoe UI", Tahoma, Geneva, Verdana,
     sans-serif;
-  padding: 15px 0;
+  padding: 0 0 15px 0;
   text-shadow: 0px 0.01em 0.05em #505050;
   letter-spacing: 0.5px;
 }
@@ -344,16 +399,322 @@ footer {
 }
 
 .ini_ses {
-  display: block;
+  display: inline-block;
+  position: relative;
+  color: #545454;
+  font-family: "Myriad Pro Bold Cond", "Myriad Pro Bold Condensed",
+    "Arial Narrow", sans-serif;
+  font-size: 1.3em;
+  font-weight: bold;
+  line-height: 2.5em;
+  width: 100%;
+  background-color: #e6e6e6;
+  text-align: center;
+}
+
+/* Formulario */
+#logeo {
+  width: 85%; /* Inner width */
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.input_label {
+  position: relative;
+  width: 100%;
+  height: 45px;
+  margin-bottom: 10px;
+}
+
+/* Input styling */
+.input_label input {
+  width: 100%;
+  height: 100%;
+  padding: 0 10px 0 50px; /* Space for icon */
+  border: none;
+  background: #f0f4f8; /* Very light blue/gray background for input */
+  font-size: 16px;
+  outline: none;
+  color: #333;
+  transition: all 0.3s ease;
+  border-radius: 0; /* Square edges as in image */
+}
+
+/* Hide spin buttons for number inputs */
+.input_label input[type="number"]::-webkit-inner-spin-button,
+.input_label input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.input_label input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Placeholder specific styling to match "Código" in image */
+.input_label input.codigo::placeholder {
+  color: #ccc;
+}
+/* If value is present, background looks blue-ish in image for Document? 
+   Let's keep consistent light blue-gray #f0f4f8 or #e8f0fe */
+
+.input_label input:focus {
+  background: #e1eaf5;
+}
+
+/* Box Icon (Gray box on left) */
+.box_blanco {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 45px; /* Square box */
+  height: 100%;
+  background-color: #d0d0d0; /* Darker gray for icon box */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.box {
+  width: auto;
+  height: auto;
+  font-size: 20px;
+  color: #666; /* Icon color */
+}
+
+/* Labels - Floating or fixed? 
+   Image shows labels OUTSIDE atop the input for filled fields (Documento, Contraseña)
+   But "Código" label is missing (placeholder?).
+   Let's style the label to be above the input.
+*/
+.box_blanco label {
+  position: absolute;
+  left: 0;
+  top: -25px; /* Move label OUTSIDE and ABOVE */
+  width: 200px;
+  text-align: left;
+  color: #777;
+  font-size: 12px;
+  font-weight: normal;
+  pointer-events: none;
+  /* Override previous transition/position logic */
+  transform: none !important;
+}
+
+/* Specific quirk: "Código" label in HTML might want to be hidden if it's acting as placeholder?
+   Or keep consistent labels above. Image shows "Código" inside.
+   HTML has label for="cod".
+*/
+.input_label:first-child .box_blanco label {
+  /* Attempt to mimic image where "Código" is placeholder */
+  display: none;
+}
+/* Add placeholder to input if missing in HTML logic? HTML has no placeholder attr. Code logic might need it.
+   But CSS can't add placeholder text.
+   Let's rely on the user seeing "Código" label above if we can't put it inside.
+   Wait, if I hide label, user sees nothing.
+   Let's keep label above for consistency or try to style it inside if empty?
+   :placeholder-shown css trick requires placeholder attribute.
+   Let's keep label ABOVE for all for consistency.
+*/
+.input_label:first-child .box_blanco label {
+  display: block; /* revert hiding */
+}
+
+/* Eye Icon */
+.eye {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 20px;
+  color: #999;
+  z-index: 10;
+}
+
+.eye:hover {
+  color: #e2001a;
+}
+
+/* Reset Password Link */
+.resetPass {
+  display: flex;
+  justify-content: center; /* Center align */
+  align-items: center;
+  gap: 8px;
+  color: #e2001a; /* Red color */
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-top: 15px;
+  width: 85%; /* Match form width */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.resetPass .icon-help-circle-outline {
+  font-size: 18px;
+  /* Icon is red circle with question mark. 
+     icomoon icon is standard. color is inherited.
+  */
+}
+
+/* Botón Ingresar */
+.ingresar {
+  width: 40%; /* Smaller width as in image */
+  padding: 10px 0;
+  background: #e2001a;
+  color: white;
+  border: none;
+  border-radius: 4px; /* Slight radius */
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.ingresar:hover {
+  background: #c30016;
+  transform: translateY(-1px);
+}
+
+.ingresar:active {
+  transform: translateY(1px);
+}
+
+/* Icon overrides removed - using FontAwesome */
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #wrapper {
+    flex-direction: column;
+  }
+
+  .flex_aside {
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    box-shadow: none;
+  }
+
+  #lateral {
+    padding-bottom: 40px;
+  }
+
+  .hamburMobil {
+    display: block; /* Show mobile menu trigger */
+    background: #e2001a; /* Match header */
+  }
+
+  /* Reuse header style for mobile if needed */
+}
+
+/* Sidebar Styling - Redesign based on image */
+.flex_aside {
+  width: 100%;
+  max-width: 340px;
+  background: white; /* Changed from gradient to white */
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1); /* Subtle shadow separator */
+}
+
+#lateral {
+  width: 100%;
+  padding: 0; /* Remove padding to handle full-width headers */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+/* Hide Mobile Hamburger/SIA logic for now or style generically */
+.hamburMobil,
+.hamburMobil i,
+#nav-icon1 {
+  display: none !important; /* Force hide for desktop view focus */
+}
+
+/* Hide old SIA logo/hamburger if not needed, image doesn't show it */
+#SIA,
+#hambur {
+  display: none;
+}
+
+/* Header Text: SISTEMA DE INFORMACIÓN */
+.texto_sia {
   width: 100%;
   text-align: center;
-  font-size: 18px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0; /* No gap */
+}
+
+.texto_sia span:first-child {
+  margin-top: 20px;
+  background-color: #e2001a;
+  color: white;
+  width: 100%;
+  padding: 0px 0;
+  font-size: 17px;
   font-weight: bold;
-  color: #555; /* Dark gray text */
-  padding: 15px 0;
-  background-color: #e0e0e0; /* Gray bar background */
-  margin-bottom: 40px; /* Space before form */
+  font-family: "Myriad Pro Bold", "Segoe UI", Tahoma, Geneva, Verdana,
+    sans-serif;
+  letter-spacing: 1px;
+  text-shadow: 0px 0.01em 0.05em #505050;
+  box-shadow: 0em 0.08em 0.06em 0em rgba(78, 78, 78, 0.75);
+  -moz-box-shadow: 0em 0.08em 0.06em 0em rgba(78, 78, 78, 0.75);
+  -webkit-box-shadow: 0em 0.08em 0.06em 0em rgba(78, 78, 78, 0.75);
+  text-transform: uppercase;
+}
+
+.texto_sia span:last-child {
+  color: #ec1c21;
+  font-size: 38px;
+  font-weight: bold;
+  font-family: "Myriad Pro Bold", "Segoe UI", Tahoma, Geneva, Verdana,
+    sans-serif;
+  padding: 0 0 15px 0;
+  text-shadow: 0px 0.01em 0.05em #505050;
   letter-spacing: 0.5px;
+}
+
+/* Container Inicio: INICIO DE SESIÓN */
+.container-ini {
+  width: 100%;
+  background: white;
+  border-radius: 0; /* Remove radius */
+  padding: 0; /* Reset padding */
+  box-shadow: none; /* Remove shadow */
+  flex: 1; /* Take remaining height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ini_ses {
+  display: inline-block;
+  position: relative;
+  color: #545454;
+  font-family: "Myriad Pro Bold Cond", "Myriad Pro Bold Condensed",
+    "Arial Narrow", sans-serif;
+  font-size: 1.3em;
+  font-weight: bold;
+  line-height: 2.5em;
+  width: 100%;
+  background-color: #e6e6e6;
+  text-align: center;
 }
 
 /* Formulario */

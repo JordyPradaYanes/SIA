@@ -1,6 +1,3 @@
-// ============================================
-// login.component.ts
-// ============================================
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -20,7 +17,7 @@ export class LoginComponent {
   isLoading = false;
   showNotification = false;
   notificationMessage = '';
-  notificationType: 'success' | 'error' = 'success';
+  notificationType: 'success' | 'error' | 'warning' = 'success';
 
   formData = {
     codigo: '',
@@ -49,7 +46,7 @@ export class LoginComponent {
     );
   }
 
-  showNotificationMessage(message: string, type: 'success' | 'error'): void {
+  showNotificationMessage(message: string, type: 'success' | 'error' | 'warning'): void {
     this.notificationMessage = message;
     this.notificationType = type;
     this.showNotification = true;
@@ -103,5 +100,9 @@ export class LoginComponent {
       'Funcionalidad de recuperación de contraseña próximamente',
       'error'
     );
+  }
+
+  closeNotification(): void {
+    this.showNotification = false;
   }
 }

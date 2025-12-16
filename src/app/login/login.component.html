@@ -83,25 +83,39 @@
         </div>
       </div>
     </section>
-    <footer>
-      <!--FOOTER-->
-      <div class="nom-sof">
-        <img
-          src="assets/imagenes/ufpso/logo_sia.png"
-          onerror="this.style.display='none'"
-        />
-        <span class="sia">SISTEMA DE INFORMACIÓN ACADÉMICO (BETA) </span>
-        <span class="ufpso"
-          >Universidad Francisco de Paula Santander - Ocaña, Colombia</span
-        >
+    <footer class="footer-custom">
+      <!-- Left Section -->
+      <div class="footer-section left">
+        <div class="sia-logo-container">
+          <!-- Using CSS to replicate the SIA box if image is not ideal, but keeping img for safety if user has it. 
+                The user image shows a specific gray box with SIA. I will use a FontAwesome icon or CSS box if image fails. -->
+          <img
+            src="assets/imagenes/ufpso/logo_sia.png"
+            class="sia-img"
+            alt="SIA Logo"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+          />
+          <div class="sia-fallback-logo" style="display: none">SIA</div>
+        </div>
+        <div class="footer-text-group">
+          <div class="sia-title">SISTEMA DE INFORMACIÓN ACADÉMICO (BETA)</div>
+          <div class="sia-subtitle">
+            Universidad Francisco de Paula Santander - Ocaña, Colombia
+          </div>
+        </div>
       </div>
-      <hr />
-      <!--AUTOR-->
-      <div id="divisis">
-        <div class="icon-display"></div>
-        <div class="by">Desarrollado por:</div>
-        <div class="division">DIVISIÓN DE SISTEMAS -</div>
-        <div class="date"></div>
+
+      <!-- Divider -->
+      <div class="footer-divider"></div>
+
+      <!-- Right Section -->
+      <div class="footer-section right">
+        <!-- Monitor Icon -->
+        <i class="fa-solid fa-desktop footer-icon"></i>
+        <div class="footer-text-group">
+          <div class="dev-label">Desarrollado por:</div>
+          <div class="dev-name">DIVISIÓN DE SISTEMAS -</div>
+        </div>
       </div>
     </footer>
   </div>
@@ -138,7 +152,7 @@
 
       <!--INICIO SESION-->
       <div class="container-ini">
-        <span class="ini_ses">INICIO DE SESIÓN</span>
+        <span class="ini_ses mb-8">INICIO DE SESIÓN</span>
 
         <!--FORMULARIO-->
         <form id="logeo" autocomplete="off">
@@ -165,7 +179,7 @@
               name="doc"
               id="doc"
               autocomplete="off"
-              maxlength="20"
+              maxlength=""
               style="border-bottom: none"
               [(ngModel)]="formData.documento"
               (keypress)="handleKeyPress($event)"
@@ -216,7 +230,30 @@
     </aside>
   </div>
 
-  <div id="notificacion" *ngIf="showNotification" [class]="notificationType">
-    {{ notificationMessage }}
+  <!-- Notificación de error -->
+  <div id="notificacion" class="activo" *ngIf="showNotification">
+    <div class="nota" [ngClass]="notificationType">
+      <div class="line">
+        <span
+          class="fa-solid"
+          [ngClass]="{
+            'fa-triangle-exclamation': notificationType === 'warning',
+            'fa-circle-xmark': notificationType === 'error',
+            'fa-circle-check': notificationType === 'success'
+          }"
+        ></span>
+      </div>
+      <div class="nota_contenido">
+        {{ notificationMessage }}
+      </div>
+      <div class="nota_x fa-solid fa-xmark" (click)="closeNotification()"></div>
+    </div>
+  </div>
+
+  <!-- Loader/Cargador -->
+  <div class="cover_general" [class.activo]="isLoading">
+    <div class="cargador">
+      <div class="loader" [class.activo]="isLoading"></div>
+    </div>
   </div>
 </div>
